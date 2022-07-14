@@ -17,7 +17,12 @@ from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
 
+from banking.views.account_viewset import AccountViewset
+from banking.views.transaction_viewset import TransactionViewset
+
 router = routers.DefaultRouter()
+router.register(r'account', AccountViewset)
+router.register(r'transaction', TransactionViewset)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

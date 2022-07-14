@@ -3,7 +3,7 @@ from banking.models.account_model import AccountModel
 from banking.models.transaction_model import TransactionModel
 
 
-class TransactionTestCase(TestCase):
+class TransactionModelTest(TestCase):
     
     def setUp(self):
         # Given

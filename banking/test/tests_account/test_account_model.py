@@ -2,7 +2,7 @@ from django.test import TestCase
 from banking.models.account_model import AccountModel
 
 
-class AccountTestCase(TestCase):
+class AccountModelTest(TestCase):
     
 
     def setUp(self):
