@@ -18,6 +18,8 @@ from django.urls import include, path
 from rest_framework import routers
 
 from banking.views.account_viewset import AccountViewset
+from banking.views.account_balance_viewset import AccountBalanceViewset
+from banking.views.account_statement_viewset import AccountStatementViewset
 from banking.views.transaction_viewset import TransactionViewset
 
 router = routers.DefaultRouter()
@@ -27,5 +29,7 @@ router.register(r'transaction', TransactionViewset)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
+    path('account/<int:pk>/balance/', AccountBalanceViewset.as_view()),
+    path('account/<int:pk>/statement/',  AccountStatementViewset.as_view()),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]

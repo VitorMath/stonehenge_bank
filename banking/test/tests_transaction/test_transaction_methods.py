@@ -27,8 +27,6 @@ class TransactionMethodsTest(TestCase):
         
         response = self.client.post('/transaction/',transaction, format='json')
 
-        print(response)
-
         # Then
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
