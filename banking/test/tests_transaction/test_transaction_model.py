@@ -47,14 +47,17 @@ class TransactionModelTest(TestCase):
         """
 
         # When
-        TransactionModel.objects.create(debited_account = self.account_one,
-                                        credited_account = self.account_two,
-                                        amount = 800000000
-        )
+        try:
+            TransactionModel.objects.create(debited_account = self.account_one,
+                                            credited_account = self.account_two,
+                                            amount = 800000000
+            )
+        except:
+            pass # If the system is working well, this test must always raise
+                 # an exception, so it's ok to keep this ppass statement here.
 
         balances = AccountModel.objects.all().values('balance')
         balance_one = balances[0].get('balance')
 
         # Then
         self.assertGreater(balance_one, 0)
-        
