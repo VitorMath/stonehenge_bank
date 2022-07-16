@@ -7,16 +7,16 @@ class TransactionModelTest(TestCase):
     
     def setUp(self):
         # Given
-        account_one = AccountModel.objects.create(balance=500)
-        account_two = AccountModel.objects.create()
+        self.account_one = AccountModel.objects.create(balance=500)
+        self.account_two = AccountModel.objects.create()
 
-        TransactionModel.objects.create(debited_account = account_one,
-                                        credited_account = account_two,
+        TransactionModel.objects.create(debited_account = self.account_one,
+                                        credited_account = self.account_two,
                                         amount = 200
         )
 
-        TransactionModel.objects.create(debited_account = account_two,
-                                        credited_account = account_one,
+        TransactionModel.objects.create(debited_account = self.account_two,
+                                        credited_account = self.account_one,
                                         amount = 80
         )
 
@@ -38,3 +38,23 @@ class TransactionModelTest(TestCase):
 
         # Then
         self.assertTrue(balance_one == 380 and balance_two == 120)
+
+
+    def test_enough_balance(self):
+        """
+        Test if system will block transaction creation when debited account
+        has not enough balance.
+        """
+
+        # When
+        TransactionModel.objects.create(debited_account = self.account_one,
+                                        credited_account = self.account_two,
+                                        amount = 800000000
+        )
+
+        balances = AccountModel.objects.all().values('balance')
+        balance_one = balances[0].get('balance')
+
+        # Then
+        self.assertGreater(balance_one, 0)
+        
