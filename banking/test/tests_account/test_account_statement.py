@@ -12,8 +12,9 @@ class AccountStatementTest(TestCase):
         # Given
         self.client = APIClient()
 
-        account_one = AccountModel.objects.create(balance=500)
-        account_two = AccountModel.objects.create()
+        # Randomly generated valid numbers.
+        account_one = AccountModel.objects.create(name="John Stone", document_number="34630412000", person_type="NP", balance=500)
+        account_two = AccountModel.objects.create(name="Rest Cafe", document_number="97329380000144", person_type="LP", balance=0)
 
         TransactionModel.objects.create(debited_account = account_one,
                                         credited_account = account_two,

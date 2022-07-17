@@ -11,7 +11,11 @@ class AccountMethodsTest(TestCase):
 
     def test_account_post(self):
         # Given
-        account = {"balance": 1}
+        account = {
+            "name": "John Stone",
+            "document_number": "34630412000", # Randomly generated valid number.
+            "person_type": "NP",
+            "balance": 1}
 
         # When
         response = self.client.post('/account/', account, format='json')

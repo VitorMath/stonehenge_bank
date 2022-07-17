@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'banking.apps.BankingConfig',
     'rest_framework',
-    'django_filters'
+    'django_filters',
 ]
 
 REST_FRAMEWORK = {
