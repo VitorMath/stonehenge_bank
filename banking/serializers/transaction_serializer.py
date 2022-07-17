@@ -15,3 +15,4 @@ class TransactionSerializer(serializers.HyperlinkedModelSerializer):
             raise serializers.ValidationError({'Debited and Credited Accounts': 'Accounts must be different!'})
 
         return data
+        
