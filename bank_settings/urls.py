@@ -23,13 +23,13 @@ from banking.views.account_statement_viewset import AccountStatementViewset
 from banking.views.transaction_viewset import TransactionViewset
 
 router = routers.DefaultRouter()
-router.register(r'account', AccountViewset)
-router.register(r'transaction', TransactionViewset)
+router.register(r"account", AccountViewset)
+router.register(r"transaction", TransactionViewset)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include(router.urls)),
-    path('account/<int:pk>/balance/', AccountBalanceViewset.as_view()),
-    path('account/<int:pk>/statement/',  AccountStatementViewset.as_view()),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path("admin/", admin.site.urls),
+    path("", include(router.urls)),
+    path("account/<int:pk>/balance/", AccountBalanceViewset.as_view()),
+    path("account/<int:pk>/statement/", AccountStatementViewset.as_view()),
+    path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
 ]

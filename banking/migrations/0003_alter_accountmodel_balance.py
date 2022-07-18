@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('banking', '0002_alter_accountmodel_balance_transactionmodel'),
+        ("banking", "0002_alter_accountmodel_balance_transactionmodel"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='accountmodel',
-            name='balance',
+            model_name="accountmodel",
+            name="balance",
             field=models.PositiveIntegerField(default=0),
         ),
     ]

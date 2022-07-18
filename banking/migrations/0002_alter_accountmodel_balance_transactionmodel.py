@@ -7,23 +7,45 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('banking', '0001_initial'),
+        ("banking", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='accountmodel',
-            name='balance',
+            model_name="accountmodel",
+            name="balance",
             field=models.IntegerField(default=0),
         ),
         migrations.CreateModel(
-            name='TransactionModel',
+            name="TransactionModel",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('amount', models.IntegerField()),
-                ('date', models.DateTimeField(auto_now_add=True)),
-                ('credited_account', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='credited_account', to='banking.accountmodel')),
-                ('debited_account', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='debited_account', to='banking.accountmodel')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("amount", models.IntegerField()),
+                ("date", models.DateTimeField(auto_now_add=True)),
+                (
+                    "credited_account",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="credited_account",
+                        to="banking.accountmodel",
+                    ),
+                ),
+                (
+                    "debited_account",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="debited_account",
+                        to="banking.accountmodel",
+                    ),
+                ),
             ],
         ),
     ]
