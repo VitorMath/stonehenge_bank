@@ -10,14 +10,15 @@ Utilize o comando `./manage.py runserver` para rodar o servidor
 
 Acesse o localhost `http://127.0.0.1:8000/`
 
-Endpoints
 
-`http://127.0.0.1:8000/account/`
+## Endpoints
 
-`http://127.0.0.1:8000/account/<id>/`
+`/account/`
 
-`http://127.0.0.1:8000/account/<id>/balance/`
+`/account/<id>/`
 
-`http://127.0.0.1:8000/account/<id>/statement/`
+`/account/<id>/balance/`
 
-`http://127.0.0.1:8000/transaction/`
+`/account/<id>/statement/`
+
+`/transaction/`
