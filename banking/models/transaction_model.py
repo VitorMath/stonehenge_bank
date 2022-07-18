@@ -30,10 +30,10 @@ class TransactionModel(models.Model):
     """
 
     debited_account = models.ForeignKey(
-        AccountModel, on_delete=models.PROTECT, related_name="debited_account"
+        AccountModel, on_delete=models.CASCADE, related_name="debited_account"
     )
     credited_account = models.ForeignKey(
-        AccountModel, on_delete=models.PROTECT, related_name="credited_account"
+        AccountModel, on_delete=models.CASCADE, related_name="credited_account"
     )
     amount = models.IntegerField()
     date = models.DateTimeField(auto_now_add=True)
